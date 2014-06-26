@@ -1,15 +1,13 @@
-package aed1.DoblementeEnlazadas;
+package aed1.doblementeEnlazadas;
 
-public class DobleEnlazadaCentinelas<E> {
-	public DobleEnlazadaCentinelas() {
-		primero = new DobleNodo<E>(null, null, null);
-		ultimo = new DobleNodo<E>(primero, null, null);
-		primero.setNext(ultimo);
+public class DobleEnlazadaCentinelasCircular<E> {
+	public DobleEnlazadaCentinelasCircular() {
+		ultimo = new DobleNodo<E>(null, null, null);
 	}
 
 	public int numElementos() {
 		int cont = 0;
-		DobleNodo<E> actual = primero.getNext();
+		DobleNodo<E> actual = ultimo.getNext();
 		while (actual != ultimo) {
 			actual = actual.getNext();
 			cont++;
@@ -19,7 +17,7 @@ public class DobleEnlazadaCentinelas<E> {
 
 	public int repeticiones(E elemento) {
 		int cont = 0;
-		DobleNodo<E> actual = primero.getNext();
+		DobleNodo<E> actual = ultimo.getNext();
 		while (actual != ultimo) {
 			if (actual.getElemento().equals(elemento)) {
 				cont++;
@@ -30,10 +28,10 @@ public class DobleEnlazadaCentinelas<E> {
 	}
 
 	public void insertarPrincipio(E elemento) {
-		DobleNodo<E> nuevo = new DobleNodo<E>(primero, elemento,
-				primero.getNext());
-		primero.getNext().setPrev(nuevo);
-		primero.setNext(nuevo);
+		DobleNodo<E> nuevo = new DobleNodo<E>(ultimo, elemento,
+				ultimo.getNext());
+		ultimo.getNext().setPrev(nuevo);
+		ultimo.setNext(nuevo);
 	}
 
 	public void insertarFinal(E elemento) {
@@ -44,7 +42,7 @@ public class DobleEnlazadaCentinelas<E> {
 	}
 
 	public boolean borrar(E elemento) {
-		DobleNodo<E> actual = primero.getNext();
+		DobleNodo<E> actual = ultimo.getNext();
 		while (actual != ultimo) {
 			if (actual.getElemento().equals(elemento)) {
 				actual.getPrev().setNext(actual.getNext());
@@ -56,5 +54,5 @@ public class DobleEnlazadaCentinelas<E> {
 		return false;
 	}
 
-	private DobleNodo<E> primero, ultimo;
+	private DobleNodo<E> ultimo;
 }

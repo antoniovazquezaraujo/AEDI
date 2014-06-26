@@ -1,4 +1,4 @@
-package aed1.DoblementeEnlazadas;
+package aed1.doblementeEnlazadas;
 
 public class DoblementeEnlazada<E> {
 	// Crear la lista vac�a, es decir, sin nodos (m�todo constructor)

@@ -1,4 +1,4 @@
-package aed1.DoblementeEnlazadas;
+package aed1.doblementeEnlazadas;
 
 public class Nodo<T> {
 	public Nodo(T dato, Nodo<T> next) {

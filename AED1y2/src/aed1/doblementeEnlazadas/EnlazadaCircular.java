@@ -1,9 +1,9 @@
-package aed1.DoblementeEnlazadas;
+package aed1.doblementeEnlazadas;
 
-public class DobleEnlazadaCircular<E> {
+public class EnlazadaCircular<E> {
 
 	// Crear la estructura vac�a (m�todo constructor)
-	public DobleEnlazadaCircular() {
+	public EnlazadaCircular() {
 		fin = null;
 	}
 
@@ -11,9 +11,9 @@ public class DobleEnlazadaCircular<E> {
 	public int contar(E elemento) {
 		int cont = 0;
 		if (fin != null) {
-			DobleNodo<E> actual = fin;
+			Nodo<E> actual = fin;
 			do {
-				if (actual.getElemento().equals(elemento)) {
+				if (actual.getDato().equals(elemento)) {
 					cont++;
 				}
 				actual = actual.getNext();
@@ -27,21 +27,19 @@ public class DobleEnlazadaCircular<E> {
 	public E primero() {
 		E ret = null;
 		if (fin != null) {
-			ret = fin.getNext().getElemento();
+			ret = fin.getNext().getDato();
 		}
 		return ret;
 	}
 
 	// Insertar un elemento al final de la lista
 	public void insertar(E elemento) {
-		DobleNodo<E> nuevo = new DobleNodo<E>(null, elemento, null);
+		Nodo<E> nuevo = new Nodo<E>(elemento, null);
 		if (fin != null) {
-			nuevo.setPrev(fin);
 			nuevo.setNext(fin.getNext());
 			fin.setNext(nuevo);
 		} else {
 			nuevo.setNext(nuevo);
-			nuevo.setPrev(fin);
 		}
 		fin = nuevo;
 	}
@@ -53,15 +51,14 @@ public class DobleEnlazadaCircular<E> {
 				fin = null;
 			} else {
 				fin.setNext(fin.getNext().getNext());
-				fin.getNext().setPrev(fin);
 			}
 		}
 	}
 
-	private DobleNodo<E> fin;
+	private Nodo<E> fin;
 
 	// /////////////////////////////////////////////////
-	public DobleNodo<E> getFin() {
+	public Nodo<E> getFin() {
 		return fin;
 	}
 

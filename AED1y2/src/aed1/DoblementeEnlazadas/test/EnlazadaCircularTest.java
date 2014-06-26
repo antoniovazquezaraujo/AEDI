@@ -1,10 +1,12 @@
-package aed1.DoblementeEnlazadas;
+package aed1.DoblementeEnlazadas.test;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import aed1.doblementeEnlazadas.EnlazadaCircular;
 
 public class EnlazadaCircularTest {
 	EnlazadaCircular<Integer> lista;
